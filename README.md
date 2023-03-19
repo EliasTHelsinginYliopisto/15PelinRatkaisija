@@ -3,7 +3,7 @@ Pythonilla ohjelmoitu 15-peli ja sen ratkaisualgoritmi
 
 ## Dokumentaatio
 
-### [Määrittelydokumentti](https://github.com/EliasTHelsinginYliopisto/15PelinRatkaisija/blob/main/Dokumentaatio/Maarittelydokimentti.md)
+### [Määrittelydokumentti](https://github.com/EliasTHelsinginYliopisto/15PelinRatkaisija/blob/main/Dokumentaatio/Maarittelydokumentti.md)
 
 ### Viikkoraportit
 
