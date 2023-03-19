@@ -27,6 +27,7 @@ Ohjelmalle toteutetaan graafinen käyttäliittymä
 Tavoitteena olisi mahdollisimman tehokas algoritmi/heurestiikka ajan ja/tai tilan käytön suhteen.
 
 ## Lähteet
+
 * Tiralabra-kurssimateriaali ja esimerkkiprojektit
 
 ## Opinto-ohjelma
