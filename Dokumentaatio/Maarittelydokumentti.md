@@ -4,14 +4,14 @@
 Toteutan projektin Pythonilla, en hallitse muita ohjelmointikieliä vertaisarviointia varten
 
 ## Projektin algoritmit ja tietorakenteet
-Ratkaisualgoritmi toteutetaan A* algoritmillä
+Ratkaisualgoritmi toteutetaan IDA* algoritmillä
 
 ## Projektin tavoite ja algoritmin perustelu
 Projektin tarkoituksena on luoda ratkaisualgoritmi 15-pelille.
-valitsin A* algoritmin koska sitä suositeltiin materiaalissa ja se vaikuttaa olevan huvin sovellettavissa projektia varten
+valitsin IDA* algoritmin koska sitä suositeltiin materiaalissa ja se vaikuttaa olevan huvin sovellettavissa projektia varten
 
 ## Ohjelman syötteet ja niiden käyttö
-Ohjelmalle toteutetaan graafinen käyttäliittymä
+Ohjelmalle toteutetaan graafinen käyttöliittymä
 
 ### Syötteet:
 * 15-pelin tilan syöttö
@@ -29,6 +29,7 @@ Tavoitteena olisi mahdollisimman tehokas algoritmi/heurestiikka ajan ja/tai tila
 ## Lähteet
 
 * Tiralabra-kurssimateriaali ja esimerkkiprojektit
+* Ohjelmistotekniikka 2023
 
 ## Opinto-ohjelma
 Tietojenkäsittelytieteen kandidaatti (TKT)
