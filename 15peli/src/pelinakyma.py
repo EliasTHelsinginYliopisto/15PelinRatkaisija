@@ -29,13 +29,13 @@ class Pelinakyma:
 
     def _alusta(self):
         """Määrittää pelinäkymän komponentit"""
-        self.validioi_ruudukko()
+        #self.validioi_ruudukko()
 
         self._kehys = ttk.Frame(master=self._juuri)
 
         for i in range(0, self._ruudukonkoko):
             for j in range(self._ruudukonkoko):
-                self._pelikentta[i][j] = ttk.Label(master=self._kehys, width=5, text=str("temp")) #self._ruudukko[i][j]
+                self._pelikentta[i][j] = ttk.Label(master=self._kehys, width=5, text=1) #self._ruudukko[i][j]
                 self._pelikentta[i][j].grid(row = i, column = j)
         
     
@@ -47,12 +47,3 @@ class Pelinakyma:
         """tuhoaa kehyksen"""
         self._kehys.destroy()
 
-    def validioi_ruudukko(self):
-        """muuntaa syötetyn ruudukon merkkijonosta matriisiksi"""
-        if not self._ruudukko:
-            self._ruudukko = [
-            [ 1,  2,  3,  4],
-            [ 5,  6,  7,  8],
-            [ 9, 10, 11, 12],
-            [13, 14, 15,  0]
-            ]
