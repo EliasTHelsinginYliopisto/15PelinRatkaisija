@@ -8,7 +8,7 @@ Ratkaisualgoritmi toteutetaan IDA* algoritmillä
 
 ## Projektin tavoite ja algoritmin perustelu
 Projektin tarkoituksena on luoda ratkaisualgoritmi 15-pelille.
-valitsin IDA* algoritmin koska sitä suositeltiin materiaalissa ja se vaikuttaa olevan huvin sovellettavissa projektia varten
+valitsin IDA* algoritmin koska sitä suositeltiin materiaalissa ja se vaikuttaa olevan hyvin sovellettavissa projektia varten
 
 ## Ohjelman syötteet ja niiden käyttö
 Ohjelmalle toteutetaan graafinen käyttöliittymä

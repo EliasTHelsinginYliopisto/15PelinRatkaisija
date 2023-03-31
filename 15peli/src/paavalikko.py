@@ -64,4 +64,4 @@ class Paavalikko:
 
     def _aloita_peli(self):
         """Metodi joka kutsuu aloituskäsittelijää"""
-        self._aloituskasittelija(self._kentta)
+        self._aloituskasittelija(self._kentta.get())

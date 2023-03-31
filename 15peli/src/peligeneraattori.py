@@ -1,39 +1,46 @@
+from random import shuffle
 
-class peligeneraattori:
+class Peligeneraattori:
     """
     Halltsee pelikentän generointia ja siihen liittyviä funktioita
+    Attributes:
+        joukko:
+                lista numeroita 0-15
     """
+    def __init__(self):
+        self._joukko = [*range(0,16,1)]
 
     def validioi_ruudukkosyote(self, ruudukko):
-        """muuntaa syötetyn ruudukon merkkijonosta matriisiksi
-        Args:
-            joukko:
-                lista numeroita 0-15
-                """
-
-
-        joukko = [range(0,15,1)]
-        if not ruudukko:
-            ruudukko = [
-            [ 1,  2,  3,  4],
-            [ 5,  6,  7,  8],
-            [ 9, 10, 11, 12],
-            [13, 14, 15,  0]
-            ]
+        """tarkistaa että syötetty ruudukko on oikeassa muodossa
+        ja palauttaa sen matriisina"""
+        if ruudukko == "":
+            ruudukko = self.generoi_ruudukko()
         else:
             ruudukko = list(ruudukko.split(","))
             ruudukko = int(ruudukko)
-            if len(ruudukko) != 16 or not set(ruudukko).issubset(joukko) :
-                ruudukko = [
-                [ 1,  2,  3,  4],
-                [ 5,  6,  7,  8],
-                [ 9, 10, 11, 12],
-                [13, 14, 15,  0]
-                ]
+            if len(ruudukko) != 16 or not set(ruudukko).issubset(self._joukko) :
+                ruudukko = self.generoi_ruudukko()
             else:
-                ruudukko = [
-                [ruudukko[0], ruudukko[1], ruudukko[2], ruudukko[3]]
-                [ruudukko[4], ruudukko[5], ruudukko[6], ruudukko[7]]
-                [ruudukko[8], ruudukko[9], ruudukko[10], ruudukko[11]]
-                [ruudukko[12], ruudukko[13], ruudukko[14], ruudukko[15]]
-                ]
+                ruudukko = self.muunna_matriiisiksi(ruudukko)
+        return ruudukko
+    
+    def generoi_ruudukko(self):
+        """Generoi satunnaisen ruudukon ja palauttaa sen matriisimna"""
+
+        ruudukko = self._joukko
+        shuffle(ruudukko)
+        ruudukko = self.muunna_matriiisiksi(ruudukko)
+        return ruudukko
+
+    def muunna_matriiisiksi(self, ruudukko):
+        """Muuntaa listan matriisiksi
+            returns
+                uusi_ruudukko:
+                        ruudukko matriisimuodossa"""
+        
+        uusi_ruudukko=[]
+        while ruudukko != []:
+            uusi_ruudukko.append(ruudukko[:4])
+            ruudukko = ruudukko[4:]
+        return uusi_ruudukko
+
