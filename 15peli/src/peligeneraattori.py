@@ -1,3 +1,4 @@
+"""shuffle toimintoa käytetään satunnaisen pelin generoinnissa"""
 from random import shuffle
 
 class Peligeneraattori:
@@ -19,13 +20,13 @@ class Peligeneraattori:
             m_ruudukko = self.generoi_ruudukko()
         else:
             l_ruudukko = list(s_ruudukko.split(","))
-            l_ruudukko = int(l_ruudukko)
-            if len(l_ruudukko) != 16 or not set(l_ruudukko).issubset(self._joukko) :
+            l_ruudukko = [int(i) for i in l_ruudukko]
+            if len(l_ruudukko) != self._ruutuumaara or not set(l_ruudukko).issubset(self._joukko):
                 m_ruudukko = self.generoi_ruudukko()
             else:
                 m_ruudukko = self.muunna_matriiisiksi(l_ruudukko)
         return m_ruudukko
-    
+
     def generoi_ruudukko(self):
         """Generoi satunnaisen ruudukon ja palauttaa sen matriisimna"""
 
@@ -39,11 +40,9 @@ class Peligeneraattori:
             returns
                 uusi_ruudukko:
                         ruudukko matriisimuodossa"""
-        
+
         m_ruudukko=[]
         while l_ruudukko != []:
             m_ruudukko.append(l_ruudukko[:self._ruudukonkoko])
             l_ruudukko = l_ruudukko[self._ruudukonkoko:]
         return m_ruudukko
-    
-

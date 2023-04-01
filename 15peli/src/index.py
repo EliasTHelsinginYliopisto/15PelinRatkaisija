@@ -1,3 +1,4 @@
+"""Tkinter kirjastoa käytetään käytöiittymän rakentamiseen"""
 from tkinter import Tk
 from paavalikko import Paavalikko
 from pelinakyma import Pelinakyma
@@ -22,7 +23,7 @@ class UI:
         """Määrittää mikä näkymä avataan sovelluksen käynnistyessä"""
 
         self._nayta_paavalikko()
-    
+
     def _nayta_paavalikko(self):
         """asettaa näkymän päävalikoksi"""
 
@@ -34,7 +35,7 @@ class UI:
         )
 
         self._nakyma.pakkaa()
-    
+
     def _nayta_pelinakyma(self, ruudukko):
         """asettaa näkymän 15-peliksi"""
 
@@ -51,13 +52,12 @@ class UI:
 
         if self._nakyma:
             self._nakyma.tuhoa()
-        
+
         self._nakyma = None
 
     def _aloitus_kasittelija(self, ruudukko):
         """käsittelee pelin käynnistymisen annetuilla asetuksilla"""
-        
-        print(ruudukko)
+
         self._nayta_pelinakyma(ruudukko)
 
 

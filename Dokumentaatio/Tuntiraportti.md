@@ -21,4 +21,4 @@ Päivä       | Aika  | Tavoite   |
 ------------|-------|-----------|
 30.3.2023   | 1h    | Pylintin  lisäys |
 31.3.2023   | 2h    | Lisää ruudukongenerointi |
-1.4.2023    | -h    | - |
+1.4.2023    | 4h    | Lisää ruutujen siirtäminen ja testejä |

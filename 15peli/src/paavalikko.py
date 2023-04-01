@@ -1,3 +1,4 @@
+"""Tkinterin moduuleja"""
 from tkinter import ttk, constants
 
 class Paavalikko:
@@ -23,15 +24,15 @@ class Paavalikko:
         self._kentta = None
 
         self._alusta()
-    
+
     def pakkaa(self):
         """täyttää kehyksen komponenteilla"""
         self._kehys.pack(fill=constants.X)
-    
+
     def tuhoa(self):
         """Tukoaa kehyksen"""
         self._kehys.destroy()
-    
+
     def _alusta(self):
         """Määrittää valikon komponentit
             Args:
@@ -49,9 +50,9 @@ class Paavalikko:
         self._kentta = ttk.Entry(
             master=self._kehys)
         aloita_nappi = ttk.Button(
-            master = self._kehys, 
+            master = self._kehys,
             text="Aloita",
-            command= self._aloita_peli 
+            command= self._aloita_peli
         )
         itsegeneroitu = ttk.Checkbutton(master = self._kehys, text= "Generoi peli")
         ratkaistava = ttk.Checkbutton(master = self._kehys, text= "Generoi ratkaistava")
