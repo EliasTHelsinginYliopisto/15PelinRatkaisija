@@ -1,4 +1,4 @@
-from tkinter import Tk, ttk
+from tkinter import Tk
 from paavalikko import Paavalikko
 from pelinakyma import Pelinakyma
 

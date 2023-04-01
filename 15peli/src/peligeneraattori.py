@@ -8,39 +8,42 @@ class Peligeneraattori:
                 lista numeroita 0-15
     """
     def __init__(self):
-        self._joukko = [*range(0,16,1)]
+        self._ruudukonkoko = 4
+        self._ruutuumaara = 2**self._ruudukonkoko
+        self._joukko = [*range(0,self._ruutuumaara,1)]
 
-    def validioi_ruudukkosyote(self, ruudukko):
+    def validioi_ruudukkosyote(self, s_ruudukko):
         """tarkistaa että syötetty ruudukko on oikeassa muodossa
         ja palauttaa sen matriisina"""
-        if ruudukko == "":
-            ruudukko = self.generoi_ruudukko()
+        if s_ruudukko == "":
+            m_ruudukko = self.generoi_ruudukko()
         else:
-            ruudukko = list(ruudukko.split(","))
-            ruudukko = int(ruudukko)
-            if len(ruudukko) != 16 or not set(ruudukko).issubset(self._joukko) :
-                ruudukko = self.generoi_ruudukko()
+            l_ruudukko = list(s_ruudukko.split(","))
+            l_ruudukko = int(l_ruudukko)
+            if len(l_ruudukko) != 16 or not set(l_ruudukko).issubset(self._joukko) :
+                m_ruudukko = self.generoi_ruudukko()
             else:
-                ruudukko = self.muunna_matriiisiksi(ruudukko)
-        return ruudukko
+                m_ruudukko = self.muunna_matriiisiksi(l_ruudukko)
+        return m_ruudukko
     
     def generoi_ruudukko(self):
         """Generoi satunnaisen ruudukon ja palauttaa sen matriisimna"""
 
-        ruudukko = self._joukko
-        shuffle(ruudukko)
-        ruudukko = self.muunna_matriiisiksi(ruudukko)
-        return ruudukko
+        l_ruudukko = self._joukko
+        shuffle(l_ruudukko)
+        m_ruudukko = self.muunna_matriiisiksi(l_ruudukko)
+        return m_ruudukko
 
-    def muunna_matriiisiksi(self, ruudukko):
+    def muunna_matriiisiksi(self, l_ruudukko):
         """Muuntaa listan matriisiksi
             returns
                 uusi_ruudukko:
                         ruudukko matriisimuodossa"""
         
-        uusi_ruudukko=[]
-        while ruudukko != []:
-            uusi_ruudukko.append(ruudukko[:4])
-            ruudukko = ruudukko[4:]
-        return uusi_ruudukko
+        m_ruudukko=[]
+        while l_ruudukko != []:
+            m_ruudukko.append(l_ruudukko[:self._ruudukonkoko])
+            l_ruudukko = l_ruudukko[self._ruudukonkoko:]
+        return m_ruudukko
+    
 
