@@ -5,6 +5,7 @@ Toteutan projektin Pythonilla, en hallitse muita ohjelmointikieliä vertaisarvio
 
 ## Projektin algoritmit ja tietorakenteet
 Ratkaisualgoritmi toteutetaan IDA* algoritmillä
+Heurestikkana käytetään manhattanin etäisyyttä eli siirtojen määrä on jokaisen palan yhteensä laskettu manhattanin etäisyys
 
 ## Projektin tavoite ja algoritmin perustelu
 Projektin tarkoituksena on luoda ratkaisualgoritmi 15-pelille.
@@ -30,6 +31,7 @@ Tavoitteena olisi mahdollisimman tehokas algoritmi/heurestiikka ajan ja/tai tila
 
 * Tiralabra-kurssimateriaali ja esimerkkiprojektit
 * Ohjelmistotekniikka 2023
+* https://michael.kim/blog/puzzle 
 
 ## Opinto-ohjelma
 Tietojenkäsittelytieteen kandidaatti (TKT)
