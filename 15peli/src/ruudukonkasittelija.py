@@ -1,4 +1,6 @@
-"""ei ulkoisia kirjastoja"""
+"""deepcopy metodia käytetään koska siirtoa tehdessä alkuperäistä
+    matriisia ei haluta muuttaa"""
+from copy import deepcopy
 
 class Ruudukonkasittelija:
     """Luokka joka käsittelee peliruudukon siirtoja"""
@@ -7,11 +9,11 @@ class Ruudukonkasittelija:
         """konstruktori"""
 
     def tee_siirto(self, ruudukko, siirto):
-        """metodi siitää ruudukkua annettuun suuntaan
+        """metodi kopioi ruudukon ja palauttaa kopion jolle siirto on toteutettu
         args:
             n_s:
                 "nollan sijainti" ruudukkomatriisissa"""
-
+        ruudukko = deepcopy(ruudukko)
         n_s = self.etsi_nolla(ruudukko)
         try:
             if siirto == "Up":

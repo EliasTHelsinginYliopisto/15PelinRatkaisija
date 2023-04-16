@@ -23,3 +23,12 @@ Päivä       | Aika  | Tavoite   |
 31.3.2023   | 2h    | Lisää ruudukongenerointi |
 1.4.2023    | 4h    | Lisää ruutujen siirtäminen ja testejä |
 2.4.2023    | 1h    | Suunnittelua |
+
+## Viikko 4
+
+Päivä       | Aika  | Tavoite   |
+------------|-------|-----------|
+12.4.2023   | 1h    | heurestiikan lisäys |
+14.4.2023   | 5h    | ratkaisijan toteutus |
+15.4.2023   | 2h    | ratkaisijan tehostus |
+16.4.2023   | -h    | testausta, dokumentointia |

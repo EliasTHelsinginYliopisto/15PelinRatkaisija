@@ -26,3 +26,4 @@ class TestPeligeneraattori(unittest.TestCase):
             ]
         saatu_matriisi = self.generaattori.generoi_ruudukko()
         self.assertNotEqual(ei_satunnaninen_matriisi, saatu_matriisi)
+    

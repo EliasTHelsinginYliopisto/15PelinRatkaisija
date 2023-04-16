@@ -24,3 +24,4 @@ ensi palautukseen:
 * lisään ratkaisijan ja toteutan sitä mahdollisimman pitkälle
 * aloitan toteutusdokumentin kirjoittamisen
 * testaan käyttöliittymän metodit
+* refaktorointia ja testauksen laajentamista
