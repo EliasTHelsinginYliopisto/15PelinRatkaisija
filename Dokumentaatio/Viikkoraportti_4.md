@@ -5,8 +5,10 @@
 ## Mitä tehty tällä viikolla
 * Ratkaisualgoritmi on luotu ja sen aikavaatimus on tehostettu tyydyttäväksi 
     * ratkaisee testauksessa käytettyä 35 askeleen ratkaisun 0.6 sekunnissa
+* Toteutusdokumenttiin on lisätty luokkakuvaus
 
 ## Edistyminen
+* IDA* algoritmi on toteutettu ja olen tyytyväinen sen rakenteeseen
 
 ## Mitä olen oppinut
 * olen oppinut soveltamaan IDA* algoritmiä projektiin

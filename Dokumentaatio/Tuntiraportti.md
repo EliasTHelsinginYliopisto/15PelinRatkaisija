@@ -31,4 +31,4 @@ Päivä       | Aika  | Tavoite   |
 12.4.2023   | 1h    | heurestiikan lisäys |
 14.4.2023   | 5h    | ratkaisijan toteutus |
 15.4.2023   | 2h    | ratkaisijan tehostus |
-16.4.2023   | -h    | testausta, dokumentointia |
+16.4.2023   | 3h    | testausta, dokumentointia |

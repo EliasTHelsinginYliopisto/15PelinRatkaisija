@@ -1,7 +1,28 @@
+"""Ruudukonkäsittelijää kutsutaan IDA* uusia solmuja luodessa"""
 from ruudukonkasittelija import Ruudukonkasittelija
 class Algoritmi:
+    """
+    Sisältää pelin ratkaisualgoritmin 
+    ja heurestikkaa laskevat metodit
+    Attributes:
+        komennot:
+            Komennot joilla ruudukonkäsittelijän tee_siirto() metodia
+            kutsutaan. Huomaa että vastakkaiset komennot ovat kahden
+            indeksin etäisyydessä toisistaan. Tätä käytetään 
+            kiellettyjen komentojen määrittämisessä
+        kasittelija:
+            ruudukonkäsittelijä-luokka
+        solmut:
+            ratkaisijan luomien solmujen määrä
+        oikeatpaikat:
+            kirjasto ruutujen päämäärien kordinaateista matriisissa
+        paamaara:
+            pelin lopputila
+    """
 
     def __init__(self):
+        """luokan konstruktori"""
+
         self.komennot = ["Up", "Left", "Down", "Right"]
         self.kasittelija = None
         self.solmut = 0
@@ -14,6 +35,11 @@ class Algoritmi:
         self.paamaara = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,0]]
 
     def manhattaninetaisyydet(self, matriisi):
+        """Laskee manhattanin etäisyys-heurestiikan
+            Returns:
+                etaisyys:
+                    jokaisen ruudun manhattanin etäisyys 
+                    oikeasta paikastaan"""
         etaisyys = 0
         for i in range(4):
             for j in range(4):
@@ -24,6 +50,21 @@ class Algoritmi:
         return etaisyys
 
     def konfliktit(self, matriisi):
+        """Laskee konfliktejen määrän
+        Args:
+            rivilla:
+                ruudut jotka ovat oikeilla paikoillaan tällä tivillä
+            sarakkeella:
+                ruudut jotka ovat oikealla paikallaan tällä 
+                sarakkeella
+            numero_r:
+                seuraava numero tällä rivillä
+            numero_s:
+                seuraava numero tällä sarakkeella
+        Returns:
+            maara:
+                konfliktejen määrä"""
+
         maara = 0
         for i in range(4):
             rivilla = []
@@ -50,6 +91,17 @@ class Algoritmi:
         return maara
 
     def ida_star(self, matriisi):
+        """IDA* algoritmin päämetodi
+        Args: 
+            kynnys:
+                Laskettu heurestiikka. jos ratkaisua ei löydy 
+                heurestiikalla, kynnystä nostetaan löydetyksi 
+                pienimmäksi arvioksi
+        Returns:
+            arvio:
+                Senhetkinen arvio oikean ratkaisun syvyydestä.
+                jos arvio <= 0, ratkaisu on löydetty ja arvion 
+                itseisarvo on vaadittujen askelten määrä"""
         self.kasittelija = Ruudukonkasittelija()
 
         kynnys = self.manhattaninetaisyydet(matriisi) + (self.konfliktit(matriisi)*2)
@@ -67,6 +119,23 @@ class Algoritmi:
 
 
     def ida_star_rekursio(self, matriisi, syvyys, kynnys, kielletty_k):
+        """IDA* agoritmin rekirsiivinen metodi
+        Args:
+            matriisi:
+                ruudukon tila tässä rekursiivisessa askeleessa
+            kynnys:
+                raja haun yhteisille siirroille
+            kielletty_k
+                komento joka siirtäisi matriisin edelliseen tilaan
+                ja kyseisestä syystä ohitetaan
+        Returns
+            arvio:
+                heurestinen arvio jäljellä olevien siirtojen määrästä
+            syvyys:
+                haun tämänhetkinen syvyys
+            pienin_arvio:
+                pienin arvio joka on rekursiivisesti löydetty
+                aluksi asetettu mahdottoman suureksi"""
 
         self.solmut += 1
 
