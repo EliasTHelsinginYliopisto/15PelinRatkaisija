@@ -32,3 +32,9 @@ Päivä       | Aika  | Tavoite   |
 14.4.2023   | 5h    | ratkaisijan toteutus |
 15.4.2023   | 2h    | ratkaisijan tehostus |
 16.4.2023   | 3h    | testausta, dokumentointia |
+
+## Viikko 5
+
+Päivä       | Aika  | Tavoite   |
+------------|-------|-----------|
+20.4.2023   | 2h    | algoritmin tehostaminen |

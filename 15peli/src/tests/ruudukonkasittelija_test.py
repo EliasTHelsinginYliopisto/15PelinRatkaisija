@@ -19,26 +19,23 @@ class TestRuudukonkasittelija(unittest.TestCase):
             [1,1,1,1],
             [1,1,1,1]
         ]
-        ruudukko2 = self.kasittelija.tee_siirto(ruudukko2,siirto="Down")
+        self.kasittelija.tee_siirto(ruudukko2,siirto="Down")
         self.assertNotEqual(ruudukko1, ruudukko2)
 
     def test_kaikki_suunnat_toimivat(self):
-        ruudukko1 = [
-            [1,1,1,1],
-            [1,1,0,1],
-            [1,1,1,1],
-            [1,1,1,1]
-        ]
         ruudukko2 = [
             [1,1,1,1],
             [1,1,0,1],
             [1,1,1,1],
             [1,1,1,1]
         ]
-        ruudukko2 = self.kasittelija.tee_siirto(ruudukko2,siirto="Up")
-        ruudukko2 = self.kasittelija.tee_siirto(ruudukko2,siirto="Down")
-        ruudukko2 = self.kasittelija.tee_siirto(ruudukko2,siirto="Left")
-        ruudukko2 = self.kasittelija.tee_siirto(ruudukko2,siirto="Right")
-        self.assertEqual(ruudukko1, ruudukko2)
+        siirto1 = self.kasittelija.tee_siirto(ruudukko2,siirto="Up")
+        siirto2 = self.kasittelija.tee_siirto(ruudukko2,siirto="Down")
+        siirto3 = self.kasittelija.tee_siirto(ruudukko2,siirto="Left")
+        siirto4 = self.kasittelija.tee_siirto(ruudukko2,siirto="Right")
+        self.assertEqual(siirto1, True)
+        self.assertEqual(siirto2, True)
+        self.assertEqual(siirto3, True)
+        self.assertEqual(siirto4, True)
 
 

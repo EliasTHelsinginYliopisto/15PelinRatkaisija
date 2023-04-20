@@ -1,5 +1,10 @@
-"""Ruudukonkäsittelijää kutsutaan IDA* uusia solmuja luodessa"""
+"""
+Ruudukonkäsittelijää kutsutaan IDA* uusia solmuja luodessa
+Deepcopy kopioi matriisin rekursiivista algoritmia varten
+"""
+from copy import deepcopy
 from ruudukonkasittelija import Ruudukonkasittelija
+
 class Algoritmi:
     """
     Sisältää pelin ratkaisualgoritmin 
@@ -108,17 +113,19 @@ class Algoritmi:
 
         while True:
             self.solmut = 0
-            arvio = self.ida_star_rekursio(matriisi=matriisi, syvyys=0,
-                                            kynnys=kynnys, kielletty_k="")
+            reitti = ["start"]
+            matriisi_kopio = deepcopy(matriisi)
+
+            arvio = self.ida_star_rekursio(matriisi_kopio, 0, kynnys, reitti)
 
             if arvio <= 0:
-                return -arvio, self.solmut
+                return -arvio, reitti
 
             kynnys = arvio
 
 
 
-    def ida_star_rekursio(self, matriisi, syvyys, kynnys, kielletty_k):
+    def ida_star_rekursio(self, matriisi, syvyys, kynnys, reitti):
         """IDA* agoritmin rekirsiivinen metodi
         Args:
             matriisi:
@@ -148,20 +155,29 @@ class Algoritmi:
 
         pienin_arvio = 999
         i = -1
+        edellinen_k = reitti[-1]
+
+
         for komento in self.komennot:
             i += 1
-
-            if komento == kielletty_k:
+            if self.komennot[i-2] == edellinen_k:
                 continue
 
-            seuraava = self.kasittelija.tee_siirto(matriisi, komento)
+            siirto = self.kasittelija.tee_siirto(matriisi, komento)
 
-            if seuraava == matriisi:
-                continue
+            if siirto:
+                reitti.append(komento)
 
-            arvio = self.ida_star_rekursio(seuraava, syvyys+1, kynnys, self.komennot[i-2])
+                arvio = self.ida_star_rekursio(matriisi, syvyys+1, kynnys, reitti)
 
-            if arvio < pienin_arvio:
-                pienin_arvio = arvio
+                if arvio <= 0:
+                    return arvio
+
+                self.kasittelija.tee_siirto(matriisi, self.komennot[i-2])
+
+                reitti.pop()
+
+                if arvio < pienin_arvio:
+                    pienin_arvio = arvio
 
         return pienin_arvio

@@ -63,7 +63,8 @@ class Pelinakyma:
     def tee_siirto(self, komento):
         """suorittaa siirron ja päivittää taulukon"""
         kasittelija = Ruudukonkasittelija()
-        self._ruudukko = kasittelija.tee_siirto(self._ruudukko, komento.keysym)
-        for i in range(0, self._ruudukonkoko):
-            for j in range(self._ruudukonkoko):
-                self._pelikentta[i][j].config(text = self._ruudukko[i][j])
+        siirto = kasittelija.tee_siirto(self._ruudukko, komento.keysym)
+        if siirto:
+            for i in range(0, self._ruudukonkoko):
+                for j in range(self._ruudukonkoko):
+                    self._pelikentta[i][j].config(text = self._ruudukko[i][j])
