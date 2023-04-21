@@ -24,7 +24,7 @@ class Pelinakyma:
         self._juuri = juuri
         self._kehys = None
         self._ruudukko = ruudukko
-        self._ruudukonkoko = 4      #len(self._ruudukko)
+        self._ruudukonkoko = 4
         self._pelikentta = [[None for i in range(self._ruudukonkoko)]
                             for j in range(self._ruudukonkoko)]
         self._alusta()

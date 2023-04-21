@@ -40,6 +40,7 @@ Tavoitteena olisi mahdollisimman tehokas algoritmi/heurestiikka ajan ja/tai tila
 * https://www.youtube.com/watch?v=g0phuZDM6Mg
 * http://kociemba.org/themen/fifteen/fifteensolver.html (vain nettisivu)
 * https://en.wikipedia.org/wiki/Iterative_deepening_A*
+* https://www.geeksforgeeks.org/check-instance-15-puzzle-solvable/
 
 ## Opinto-ohjelma
 Tietojenkäsittelytieteen kandidaatti (TKT)

@@ -154,19 +154,17 @@ class Algoritmi:
             return arvio
 
         pienin_arvio = 999
-        i = -1
         edellinen_k = reitti[-1]
 
+        for i in range(4):
 
-        for komento in self.komennot:
-            i += 1
             if self.komennot[i-2] == edellinen_k:
                 continue
 
-            siirto = self.kasittelija.tee_siirto(matriisi, komento)
+            siirto = self.kasittelija.tee_siirto(matriisi, self.komennot[i])
 
             if siirto:
-                reitti.append(komento)
+                reitti.append(self.komennot[i])
 
                 arvio = self.ida_star_rekursio(matriisi, syvyys+1, kynnys, reitti)
 
