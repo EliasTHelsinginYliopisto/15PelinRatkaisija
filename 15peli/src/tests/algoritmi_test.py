@@ -33,10 +33,9 @@ class TestAlgoritmi(unittest.TestCase):
             [9,10,11,12],
             [13,14,15,0]
             ]
-        syvyys, reitti = self.algoritmi.ida_star(matriisi)
+        reitti = self.algoritmi.ida_star(matriisi)
 
-        self.assertEqual(syvyys, 0)
-        self.assertEqual(syvyys+1, len(reitti))
+        self.assertEqual(len(reitti), 0)
     
     def test_ratkaisu_löytyy_yksinkertaisella_pelillä(self):
         matriisi = [
@@ -45,10 +44,9 @@ class TestAlgoritmi(unittest.TestCase):
             [5,10,11,0],
             [9,13,14,15]
             ]
-        syvyys, reitti = self.algoritmi.ida_star(matriisi)
+        reitti = self.algoritmi.ida_star(matriisi)
 
-        self.assertEqual(syvyys, 11)
-        self.assertEqual(syvyys+1, len(reitti))
+        self.assertEqual(len(reitti), 11)
 
     def test_ratkaisu_löytyy_syvyys_35(self):
         matriisi = [
@@ -57,10 +55,9 @@ class TestAlgoritmi(unittest.TestCase):
         [2,9,12,7],
         [14,5,0,11]
         ]
-        syvyys, reitti= self.algoritmi.ida_star(matriisi)
+        reitti= self.algoritmi.ida_star(matriisi)
 
-        self.assertEqual(syvyys, 35)
-        self.assertEqual(syvyys+1, len(reitti))
+        self.assertEqual(len(reitti), 35)
     
     def test_ei_virhellisiä_konflikteja(self):
         matriisi = [

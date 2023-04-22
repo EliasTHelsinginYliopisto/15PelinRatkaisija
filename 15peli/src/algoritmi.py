@@ -4,6 +4,7 @@ Deepcopy kopioi matriisin rekursiivista algoritmia varten
 """
 from copy import deepcopy
 from ruudukonkasittelija import Ruudukonkasittelija
+from tilasto import Tilasto
 
 class Algoritmi:
     """
@@ -19,8 +20,8 @@ class Algoritmi:
             ruudukonkäsittelijä-luokka
         solmut:
             ratkaisijan luomien solmujen määrä
-        oikeatpaikat:
-            kirjasto ruutujen päämäärien kordinaateista matriisissa
+        tilasto:
+            tilasto-luokka
         paamaara:
             pelin lopputila
     """
@@ -29,14 +30,9 @@ class Algoritmi:
         """luokan konstruktori"""
 
         self.komennot = ["Up", "Left", "Down", "Right"]
-        self.kasittelija = None
+        self.kasittelija = Ruudukonkasittelija()
         self.solmut = 0
-        self.oikeatpaikat = {
-            1:(0,0), 2:(0,1), 3:(0,2), 4:(0,3),
-            5:(1,0), 6:(1,1), 7:(1,2), 8:(1,3),
-            9:(2,0), 10:(2,1), 11:(2,2), 12:(2,3),
-            13:(3,0), 14:(3,1), 15:(3,2), 0:(3,3)
-            }
+        self.tilasto = None
         self.paamaara = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,0]]
 
     def manhattaninetaisyydet(self, matriisi):
@@ -50,8 +46,8 @@ class Algoritmi:
             for j in range(4):
                 numero = matriisi[i][j]
                 if numero != 0:
-                    etaisyys += abs(i-self.oikeatpaikat[numero][0])
-                    etaisyys += abs(j-self.oikeatpaikat[numero][1])
+                    etaisyys += abs(i-(numero-1)//4)
+                    etaisyys += abs(j-(numero-1)%4)
         return etaisyys
 
     def konfliktit(self, matriisi):
@@ -79,14 +75,14 @@ class Algoritmi:
                 numero_r = matriisi[i][j]
                 numero_s = matriisi[j][i]
 
-                if self.oikeatpaikat[numero_r][0] == i and numero_r != 0:
+                if (numero_r-1)//4 == i and numero_r != 0:
                     if len(rivilla) > 0:
                         for numero in rivilla:
                             if numero > numero_r:
                                 maara += 1
                     rivilla.append(numero_r)
 
-                if self.oikeatpaikat[numero_s][1] == i and numero_s != 0:
+                if (numero_s-1)%4 == i and numero_s != 0:
                     if len(sarakkeella) > 0:
                         for numero in sarakkeella:
                             if numero > numero_s:
@@ -107,23 +103,25 @@ class Algoritmi:
                 Senhetkinen arvio oikean ratkaisun syvyydestä.
                 jos arvio <= 0, ratkaisu on löydetty ja arvion 
                 itseisarvo on vaadittujen askelten määrä"""
-        self.kasittelija = Ruudukonkasittelija()
 
         kynnys = self.manhattaninetaisyydet(matriisi) + (self.konfliktit(matriisi)*2)
 
+        self.tilasto = Tilasto(kynnys)
+
         while True:
-            self.solmut = 0
+
             reitti = ["start"]
             matriisi_kopio = deepcopy(matriisi)
 
             arvio = self.ida_star_rekursio(matriisi_kopio, 0, kynnys, reitti)
 
             if arvio <= 0:
-                return -arvio, reitti
+                reitti = reitti[1:]
+                self.tilasto.ratkaisu(reitti)
+                return reitti
 
+            self.tilasto.syvennos(kynnys, arvio)
             kynnys = arvio
-
-
 
     def ida_star_rekursio(self, matriisi, syvyys, kynnys, reitti):
         """IDA* agoritmin rekirsiivinen metodi
@@ -144,7 +142,7 @@ class Algoritmi:
                 pienin arvio joka on rekursiivisesti löydetty
                 aluksi asetettu mahdottoman suureksi"""
 
-        self.solmut += 1
+        self.tilasto.tulosta()
 
         if matriisi == self.paamaara:
             return -syvyys
