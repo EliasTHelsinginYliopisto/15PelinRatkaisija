@@ -1,4 +1,4 @@
-# Viiko 5 (Keskeneräinen)
+# Viiko 5
 
 [Tuntiraportti](https://github.com/EliasTHelsinginYliopisto/15PelinRatkaisija/blob/main/Dokumentaatio/Tuntiraportti.md)
 
@@ -7,14 +7,18 @@
 * ratkaisualgoritmi palauttaa kuljetun reitin
 * lisätty metodi joka tarkistaa onko peli ratkaistavissa ja sen testit
 * lisätty invoke
+* lisätty tilasto-luokka joka tulostaa algoritmiä suorittaessa
+* käyttöliittymästä on tehty tyylikkäämpi
 
 ## Mitä olen oppinut
-* 
+* Tkinterin käyttöä
 
 ## Ongelmat/Kysymykset/Vaikeudet
-* 
+* Tkinter- ja konsolituloistustaidoissani olisi vielä hiomista
 
 
 ## Mitä seuraavaksi
-*
+* Dokumentaation täydennöstä
+* käyttöliittymän parannusta
+* refaktorointia
 

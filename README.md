@@ -18,3 +18,5 @@ Pythonilla ohjelmoitu 15-peli ja sen ratkaisualgoritmi
 * [Viikko 3](https://github.com/EliasTHelsinginYliopisto/15PelinRatkaisija/blob/main/Dokumentaatio/Viikkoraportti_3.md)
 
 * [Viikko 4](https://github.com/EliasTHelsinginYliopisto/15PelinRatkaisija/blob/main/Dokumentaatio/Viikkoraportti_4.md)
+
+* [Viikko 5](https://github.com/EliasTHelsinginYliopisto/15PelinRatkaisija/blob/main/Dokumentaatio/Viikkoraportti_5.md)

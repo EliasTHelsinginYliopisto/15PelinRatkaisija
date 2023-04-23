@@ -2,6 +2,7 @@
 from tkinter import ttk, constants
 from peligeneraattori import Peligeneraattori
 from ruudukonkasittelija import Ruudukonkasittelija
+from algoritmi import Algoritmi
 
 class Pelinakyma:
     """
@@ -40,16 +41,29 @@ class Pelinakyma:
 
         self._kehys = ttk.Frame(master=self._juuri)
 
-        for i in range(0, self._ruudukonkoko):
+        for i in range(self._ruudukonkoko):
             for j in range(self._ruudukonkoko):
-                self._pelikentta[i][j] = ttk.Label(master=self._kehys,
-                                                   width=5, text=self._ruudukko[i][j])
-                self._pelikentta[i][j].grid(row = i, column = j)
+                if self._ruudukko[i][j] != 0:
+                    self._pelikentta[i][j] = ttk.Label(master=self._kehys,
+                                                    text=self._ruudukko[i][j],
+                                                    background="#717171",
+                                                    relief = "solid",
+                                                    anchor="center")
+                else:
+                    self._pelikentta[i][j] = ttk.Label(master=self._kehys,
+                                                    text="",
+                                                    relief = "solid",
+                                                    anchor="center")
+
+                self._pelikentta[i][j].grid(row = i+1, column = j+1, sticky = "nswe")
 
         self._kehys.bind("<Up>", self.tee_siirto)
         self._kehys.bind("<Down>", self.tee_siirto)
         self._kehys.bind("<Left>", self.tee_siirto)
         self._kehys.bind("<Right>", self.tee_siirto)
+
+        self._kehys.columnconfigure(list(range(self._ruudukonkoko+2)), minsize=50, weight=1)
+        self._kehys.rowconfigure(list(range(self._ruudukonkoko+2)), minsize=50,weight=1)
 
     def pakkaa(self):
         """täyttää kehyksen komponenteilla"""
@@ -65,6 +79,14 @@ class Pelinakyma:
         kasittelija = Ruudukonkasittelija()
         siirto = kasittelija.tee_siirto(self._ruudukko, komento.keysym)
         if siirto:
-            for i in range(0, self._ruudukonkoko):
+            for i in range(self._ruudukonkoko):
                 for j in range(self._ruudukonkoko):
-                    self._pelikentta[i][j].config(text = self._ruudukko[i][j])
+                    if self._ruudukko[i][j] != 0:
+                        self._pelikentta[i][j].config(text = self._ruudukko[i][j],
+                                                      background ="#717171")
+                    else:
+                        self._pelikentta[i][j].config(text = "",
+                                                      background = "")
+    
+    def ratkaise(self):
+        pass

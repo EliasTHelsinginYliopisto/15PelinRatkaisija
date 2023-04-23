@@ -46,22 +46,30 @@ class Paavalikko:
                     valinta joka varmistaa että peli on ratkaistavissa"""
         self._kehys = ttk.Frame(master=self._juuri)
 
+        muotoilu = ttk.Style()
+        muotoilu.configure(".", font=("Arial", 20))
+
         teksti = ttk.Label(master=self._kehys, text="15-peli")
         self._kentta = ttk.Entry(
-            master=self._kehys)
+            master=self._kehys, justify="center", font=("Arial", 20))
         aloita_nappi = ttk.Button(
             master = self._kehys,
             text="Aloita",
-            command= self._aloita_peli
+            command= self._aloita_peli,
         )
-        itsegeneroitu = ttk.Checkbutton(master = self._kehys, text= "Generoi peli")
-        ratkaistava = ttk.Checkbutton(master = self._kehys, text= "Generoi ratkaistava")
 
-        teksti.grid(row=0, column=0)
-        self._kentta.grid(row=1, column=0)
-        aloita_nappi.grid(row=2, column=0)
-        itsegeneroitu.grid(row=3, column=0)
-        ratkaistava.grid(row=3, column=1)
+        itsegeneroitu = ttk.Checkbutton(master = self._kehys, text= "Generoi peli")
+        ratkaistava = ttk.Checkbutton(master = self._kehys, text= "Ratkaistava")
+
+        teksti.grid(row=2, column=3)
+        self._kentta.grid(row=3, column=1, columnspan=5, sticky="ew")
+        aloita_nappi.grid(row=4, column=3, sticky="ew")
+        itsegeneroitu.grid(row=5, column=1)
+        ratkaistava.grid(row=5, column=5)
+
+
+        self._kehys.columnconfigure(list(range(7)),minsize=100)
+        self._kehys.rowconfigure(list(range(7)),pad=5, minsize=10)
 
     def _aloita_peli(self):
         """Metodi joka kutsuu aloituskäsittelijää"""
