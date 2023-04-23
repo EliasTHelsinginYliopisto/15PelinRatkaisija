@@ -8,7 +8,7 @@
 * lisätty metodi joka tarkistaa onko peli ratkaistavissa ja sen testit
 * lisätty invoke
 * lisätty tilasto-luokka joka tulostaa algoritmiä suorittaessa
-* käyttöliittymästä on tehty tyylikkäämpi
+* algoritmi on nyt kutsuttavissa käyttöliittymästä
 
 ## Mitä olen oppinut
 * Tkinterin käyttöä

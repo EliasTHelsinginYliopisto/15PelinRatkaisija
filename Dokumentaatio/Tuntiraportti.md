@@ -40,4 +40,4 @@ Päivä       | Aika  | Tavoite   |
 20.4.2023   | 2h    | algoritmin tehostaminen |
 21.4.2023   | 2h    | lisää ratkaistavuuden tarkistaja |
 22.4.2023   | 4h    | lisää tilasto |
-23.4.2023   | -h    | päivitä käyttöliittymä |
+23.4.2023   | 3h    | päivitä käyttöliittymä |

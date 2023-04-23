@@ -20,6 +20,7 @@ classDiagram
     Pelinakyma <-- UI
     Pelinakyma ..>  Peligeneraattori
     Pelinakyma ..> Ruudukonkasittelija
+    Pelinakyma ..> Algoritmi
     Algoritmi ..> Ruudukonkasittelija
+    Algoritmi ..> Tilasto
 ```
-Luokkakuvaus projektin tämänhetkisestä rakenteesta. Algoritmi ei ole vielä kutsuttavissa käyttöliittymästä
