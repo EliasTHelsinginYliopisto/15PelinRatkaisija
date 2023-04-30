@@ -43,9 +43,14 @@ class UI:
 
         self._nakyma = Pelinakyma(
             self._juuri,
-            ruudukko
+            ruudukko,
+            self._palaa_paavalikkoon
         )
         self._nakyma.pakkaa()
+
+    def _palaa_paavalikkoon(self):
+        """käsittelee siirtymisen päävalikkoon"""
+        self._nayta_paavalikko()
 
     def _piiloita_nakyma(self):
         """tuhoaa senhetkisen näkymän"""

@@ -29,7 +29,7 @@ class Tilasto:
         kulunut = time()-self.aloitus
         if self.kulunut+0.10 < kulunut:
             self.kulunut = kulunut
-            print("\033[1A\x1b[2K\033[1A\x1b[2K\033[1A\x1b[2K\033[1A\x1b[2K")
+            print("\033[1A\033[2K\033[1A\033[2K\033[1A\033[2K\033[1A\033[2K")
             print("Luodut solmut:", self.solmut)
             print("Kulunut aika:", round(self.kulunut,1),"s")
             print("Tehdyt syvennökset:", self.syvennokset)
@@ -38,7 +38,7 @@ class Tilasto:
         """Tulostaa haun tilastot syvennöksen tapahtuessa"""
         self.syvennokset += 1
         self.kulunut = time()-self.aloitus
-        print("\033[1A\x1b[2K\033[1A\x1b[2K\033[1A\x1b[2K\033[1A\x1b[2K")
+        print("\033[1A\033[2K\033[1A\033[2K\033[1A\033[2K\033[1A\033[2K")
         print("Syvennetään hakua, aiempi kynnys:",kynnys,"Uusi kynnys:",arvio)
         print("Solmut:",self.solmut,
                 "Kulunut aika:", round(self.kulunut,3),"s")
@@ -47,7 +47,7 @@ class Tilasto:
     def ratkaisu(self, reitti):
         """Tulostaa haun tuloksen haun päättyessä"""
         self.kulunut = time()-self.aloitus
-        print("\033[1A\x1b[2K\033[1A\x1b[2K\033[1A\x1b[2K\033[1A\x1b[2K")
+        print("\033[1A\033[2K\033[1A\033[2K\033[1A\033[2K\033[1A\033[2K")
         print("Ratkaisu löydetty, reitti:")
         print(reitti)
         print("Haun kesto:",round(self.kulunut,3), "s",

@@ -41,3 +41,9 @@ Päivä       | Aika  | Tavoite   |
 21.4.2023   | 2h    | lisää ratkaistavuuden tarkistaja |
 22.4.2023   | 4h    | lisää tilasto |
 23.4.2023   | 3h    | päivitä käyttöliittymä |
+
+## Viikko 6
+
+Päivä       | Aika  | Tavoite   |
+------------|-------|-----------|
+30.4.2023   | -h    | Viikkopalautus 6 |
