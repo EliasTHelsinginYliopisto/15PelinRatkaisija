@@ -55,7 +55,7 @@ class Paavalikko:
         aloita_nappi = ttk.Button(
             master = self._kehys,
             text="Aloita",
-            command= self._aloita_peli,
+            command= self._aloita_peli
         )
 
         itsegeneroitu = ttk.Checkbutton(master = self._kehys, text= "Generoi peli")

@@ -46,4 +46,4 @@ Päivä       | Aika  | Tavoite   |
 
 Päivä       | Aika  | Tavoite   |
 ------------|-------|-----------|
-30.4.2023   | -h    | Viikkopalautus 6 |
+30.4.2023   | 7h    | Viikkopalautus 6 |
