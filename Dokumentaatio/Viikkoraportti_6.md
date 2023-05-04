@@ -7,6 +7,7 @@
 * Ratkaisun hakemista ei enää aloiteta jos peli on ratkaistussa tilassa tai peliä ei voi ratkaista
 * kun ratkaisu on löydetty, käyttöliitymässä korostetaan seuraava siirrettävä ruutu
 * manuaaliset siirrot ratkaisun löydyttyä eivät enää sekoita ratkaisua
+* Toteutusdokumenttiin on lisätty sekvenssikaavioita ja suorituskykydataa
 
 ## Mitä olen oppinut
 - Suorituskykytestejä tekemällä olen saanut mielenkiintoisia havaintoja IDA* haun rakenteesta. Heurestiikan vaikutus saa haun tehokkuuden vaikuttamaan hyvin satunnaiselta.
