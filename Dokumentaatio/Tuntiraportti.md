@@ -47,3 +47,9 @@ Päivä       | Aika  | Tavoite   |
 Päivä       | Aika  | Tavoite   |
 ------------|-------|-----------|
 30.4.2023   | 7h    | Viikkopalautus 6 |
+
+## Viimeistely
+
+Päivä       | Aika  | Tavoite   |
+------------|-------|-----------|
+4.5.2023    | 2h    | Refaktorointia    |

@@ -1,7 +1,7 @@
 """deepcopy metodia käytetään koska siirtoa tehdessä alkuperäistä
     matriisia ei haluta muuttaa"""
 
-class Ruudukonkasittelija:
+class Siirtokasittelija:
     """Luokka joka käsittelee peliruudukon siirtoja"""
 
     def __init__(self):

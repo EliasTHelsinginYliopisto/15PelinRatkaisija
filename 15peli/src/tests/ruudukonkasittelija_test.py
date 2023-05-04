@@ -1,10 +1,10 @@
 #pylint: skip-file
 import unittest
-from ruudukonkasittelija import Ruudukonkasittelija
+from siirtokasittelija import Siirtokasittelija
 
-class TestRuudukonkasittelija(unittest.TestCase):
+class TestSiirtokasittelija(unittest.TestCase):
     def setUp(self):
-        self.kasittelija = Ruudukonkasittelija()
+        self.kasittelija = Siirtokasittelija()
 
     def test_siirto_muuttaa_matriisia(self):
         ruudukko1 = [
