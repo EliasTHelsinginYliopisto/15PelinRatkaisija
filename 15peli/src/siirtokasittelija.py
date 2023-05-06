@@ -13,33 +13,37 @@ class Siirtokasittelija:
             n_s:
                 "nollan sijainti" ruudukkomatriisissa"""
         n_s = self.etsi_nolla(ruudukko)
-        if siirto == "Up" and n_s[0] < 3:
-            ruudukko[n_s[0]][n_s[1]] = ruudukko[n_s[0]+1][n_s[1]]
-            ruudukko[n_s[0]+1][n_s[1]] = 0
-            return True
-        if siirto == "Down" and n_s[0] > 0:
-            ruudukko[n_s[0]][n_s[1]] = ruudukko[n_s[0]-1][n_s[1]]
-            ruudukko[n_s[0]-1][n_s[1]] = 0
-            return True
-        if siirto == "Left" and n_s[1] < 3:
-            ruudukko[n_s[0]][n_s[1]] = ruudukko[n_s[0]][n_s[1]+1]
-            ruudukko[n_s[0]][n_s[1]+1] = 0
-            return True
-        if siirto == "Right" and n_s[1] > 0:
-            ruudukko[n_s[0]][n_s[1]] = ruudukko[n_s[0]][n_s[1]-1]
-            ruudukko[n_s[0]][n_s[1]-1] = 0
-            return True
 
-        return False
+        try:
+            if siirto == "Up":
+                ruudukko[n_s[0]][n_s[1]] = ruudukko[n_s[0]+1][n_s[1]]
+                ruudukko[n_s[0]+1][n_s[1]] = 0
+                return True
+            if siirto == "Down" and n_s[0] > 0:
+                ruudukko[n_s[0]][n_s[1]] = ruudukko[n_s[0]-1][n_s[1]]
+                ruudukko[n_s[0]-1][n_s[1]] = 0
+                return True
+            if siirto == "Left":
+                ruudukko[n_s[0]][n_s[1]] = ruudukko[n_s[0]][n_s[1]+1]
+                ruudukko[n_s[0]][n_s[1]+1] = 0
+                return True
+            if siirto == "Right" and n_s[1] > 0:
+                ruudukko[n_s[0]][n_s[1]] = ruudukko[n_s[0]][n_s[1]-1]
+                ruudukko[n_s[0]][n_s[1]-1] = 0
+                return True
+            return False
+
+        except IndexError:
+            return False
 
 
     def etsi_nolla(self, ruudukko):
         """Etsii nollan paikan matriisista"""
 
         nollasijainti = [0,0]
-        for i in range(0,4):
-            for j in range(0,4):
-                if ruudukko[i][j] == 0:
+        for i, rivi in enumerate(ruudukko):
+            for j, numero in enumerate(rivi):
+                if numero == 0:
                     nollasijainti[0] = i
                     nollasijainti[1] = j
         return nollasijainti

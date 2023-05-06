@@ -19,9 +19,9 @@ class Pelikasittelija:
         ratkaisu:
             lista siirroista jotka johtaa ratkaisuun"""
 
-    def __init__(self, ruudukko):
+    def __init__(self, ruudukko, koko):
         self._siirtaja = Siirtokasittelija()
-        self._generaattori = Peligeneraattori()
+        self._generaattori = Peligeneraattori(koko)
         self._algoritmi = Algoritmi()
         self._ruudukko = self._generaattori.validioi_ruudukkosyote(ruudukko)
         self._ratkaisu = []

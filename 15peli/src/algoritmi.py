@@ -34,6 +34,7 @@ class Algoritmi:
         self.solmut = 0
         self.tilasto = None
         self.paamaara = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,0]]
+        self.pituus = 4
 
     def manhattaninetaisyydet(self, matriisi):
         """Laskee manhattanin etäisyys-heurestiikan
@@ -42,19 +43,18 @@ class Algoritmi:
                     jokaisen ruudun manhattanin etäisyys 
                     oikeasta paikastaan"""
         etaisyys = 0
-        for i in range(4):
-            for j in range(4):
-                numero = matriisi[i][j]
+        for i, rivi in enumerate(matriisi):
+            for j, numero in enumerate(rivi):
                 if numero != 0:
-                    etaisyys += abs(i-(numero-1)//4)
-                    etaisyys += abs(j-(numero-1)%4)
+                    etaisyys += abs(i-(numero-1)//self.pituus)
+                    etaisyys += abs(j-(numero-1)%self.pituus)
         return etaisyys
 
     def konfliktit(self, matriisi):
-        """Laskee konfliktejen määrän
+        """Laskee konfliktejen määrän pelikentässä
         Args:
             rivilla:
-                ruudut jotka ovat oikeilla paikoillaan tällä tivillä
+                ruudut jotka ovat oikeilla paikoillaan tällä rivillä
             sarakkeella:
                 ruudut jotka ovat oikealla paikallaan tällä 
                 sarakkeella
@@ -67,29 +67,50 @@ class Algoritmi:
                 konfliktejen määrä"""
 
         maara = 0
-        for i in range(4):
+
+        for i, rivi in enumerate(matriisi):
             rivilla = []
             sarakkeella = []
 
-            for j in range(4):
-                numero_r = matriisi[i][j]
+            for j, numero in enumerate(rivi):
+                numero_r = numero
                 numero_s = matriisi[j][i]
 
-                if (numero_r-1)//4 == i and numero_r != 0:
+                if (numero_r-1)//self.pituus == i and numero_r != 0:
                     if len(rivilla) > 0:
-                        for numero in rivilla:
-                            if numero > numero_r:
-                                maara += 1
+                        maara += self.konfliktit_listassa(rivilla, numero_r)
                     rivilla.append(numero_r)
 
-                if (numero_s-1)%4 == i and numero_s != 0:
+                if (numero_s-1)%self.pituus == i and numero_s != 0:
                     if len(sarakkeella) > 0:
-                        for numero in sarakkeella:
-                            if numero > numero_s:
-                                maara += 1
+                        maara += self.konfliktit_listassa(sarakkeella, numero_s)
                     sarakkeella.append(numero_s)
 
         return maara
+
+    def konfliktit_listassa(self, lista, numero):
+        """Laskee konfliktejen määrän annetulla numerolla ja listalla"""
+        maara = 0
+        for alkio in lista:
+            if alkio > numero:
+                maara += 1
+        return maara
+
+    def alusta_paamaara(self):
+        """Selvittää mikä on matriisin ratkaisutila
+        Args:
+            Lista:
+                ratkaisu listamuodossa
+        Returns:
+            paamaara
+                ratkaisutila matriisimuodossa"""
+        lista = list(range(1,(self.pituus)**2,1))
+        lista.append(0)
+        paamaara = []
+        while lista:
+            paamaara.append(lista[:self.pituus])
+            lista = lista[self.pituus:]
+        return paamaara
 
     def ida_star(self, matriisi):
         """IDA* algoritmin päämetodi
@@ -107,6 +128,8 @@ class Algoritmi:
         kynnys = self.manhattaninetaisyydet(matriisi) + (self.konfliktit(matriisi)*2)
 
         self.tilasto = Tilasto(kynnys)
+        self.pituus = len(matriisi)
+        self.paamaara = self.alusta_paamaara()
 
         while True:
 

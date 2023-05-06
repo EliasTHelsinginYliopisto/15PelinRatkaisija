@@ -8,9 +8,9 @@ class Peligeneraattori:
         joukko:
                 lista numeroita 0-15
     """
-    def __init__(self):
-        self._ruudukonkoko = 4
-        self._ruutuumaara = 2**self._ruudukonkoko
+    def __init__(self, koko):
+        self._ruudukonkoko = koko
+        self._ruutuumaara = self._ruudukonkoko**2
         self._joukko = [*range(0,self._ruutuumaara,1)]
 
     def validioi_ruudukkosyote(self, s_ruudukko):

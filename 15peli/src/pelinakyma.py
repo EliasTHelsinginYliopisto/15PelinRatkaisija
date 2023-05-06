@@ -24,7 +24,7 @@ class Pelinakyma:
         self._juuri = juuri
         self._kehys = None
         self._pelikentta = []
-        self._kasittelija = Pelikasittelija(ruudukko)
+        self._kasittelija = Pelikasittelija(ruudukko, 4)
         self._paavalikkokasittielija = paavalikkokasittelija
         self._alusta()
 
