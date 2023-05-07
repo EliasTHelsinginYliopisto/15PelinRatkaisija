@@ -58,14 +58,9 @@ class Paavalikko:
             command= self._aloita_peli
         )
 
-        itsegeneroitu = ttk.Checkbutton(master = self._kehys, text= "Generoi peli")
-        ratkaistava = ttk.Checkbutton(master = self._kehys, text= "Ratkaistava")
-
         teksti.grid(row=2, column=3)
         self._kentta.grid(row=3, column=1, columnspan=5, sticky="ew")
         aloita_nappi.grid(row=4, column=3, sticky="ew")
-        itsegeneroitu.grid(row=5, column=1)
-        ratkaistava.grid(row=5, column=5)
 
 
         self._kehys.columnconfigure(list(range(7)),minsize=100)

@@ -34,6 +34,10 @@ class Pelinakyma:
         self._kehys = ttk.Frame(master=self._juuri)
         self._pelikentta = self.alusta_pelikentta()
 
+
+        self._laskuri = ttk.Label(master=self._kehys, text="Tehdyt siirrtot: 0")
+        self._laskuri.grid(row=1, columnspan=99)
+
         self._kehys.bind("<Up>", self.tee_siirto)
         self._kehys.bind("<Down>", self.tee_siirto)
         self._kehys.bind("<Left>", self.tee_siirto)
@@ -65,10 +69,10 @@ class Pelinakyma:
                                             relief = "solid",
                                             anchor="center")
 
-                pelikentta[i][j].grid(row = i+1, column = j+1, sticky = "nswe")
+                pelikentta[i][j].grid(row = i+2, column = j+1, sticky = "nswe")
 
-        self._kehys.columnconfigure(list(range(len(ruudukko)+2)), minsize=50, weight=1)
-        self._kehys.rowconfigure(list(range(len(ruudukko)+2)), minsize=50,weight=1)
+        self._kehys.columnconfigure(list(range(len(ruudukko)+2)), minsize=50, weight=1, pad=0)
+        self._kehys.rowconfigure(list(range(len(ruudukko)+3)), minsize=50,weight=1, pad = 0)
 
         return pelikentta
 
@@ -80,6 +84,7 @@ class Pelinakyma:
             seuraava:
                 ratkaisussa seuraavan siirrettävän ruudun kordinaatit"""
         ruudukko = self._kasittelija.hae_ruudukko()
+        siirrot = self._kasittelija.hae_siirrot()
         for i, rivi in enumerate(ruudukko):
             for j, numero in enumerate(rivi):
                 if numero != 0:
@@ -88,6 +93,8 @@ class Pelinakyma:
                 else:
                     self._pelikentta[i][j].config(text = "",
                                                     background = "")
+
+        self._laskuri.config(text= f"Tehdyt siirrot: {siirrot}")
 
         seuraava = self._kasittelija.etsi_seuraava()
         if seuraava:

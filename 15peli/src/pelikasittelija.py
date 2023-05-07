@@ -25,10 +25,15 @@ class Pelikasittelija:
         self._algoritmi = Algoritmi()
         self._ruudukko = self._generaattori.validioi_ruudukkosyote(ruudukko)
         self._ratkaisu = []
+        self._siirrot = 0
 
     def hae_ruudukko(self):
-        """get funktio: palauttaa ruudukon"""
+        """get metodi: palauttaa ruudukon"""
         return self._ruudukko
+
+    def hae_siirrot(self):
+        """get metodi: palauttaa siirtojen määrän"""
+        return self._siirrot
 
     def tee_siirto(self, komento):
         """tekee siiron ja päivittää ratkaisun tarvittaessa
@@ -39,6 +44,8 @@ class Pelikasittelija:
 
         if not siirto:
             return False
+
+        self._siirrot += 1
         if len(self._ratkaisu) == 0:
             return True
         if komento == self._ratkaisu[0]:
@@ -61,6 +68,7 @@ class Pelikasittelija:
         if len(self._ratkaisu) > 0:
             self._siirtaja.tee_siirto(self._ruudukko, self._ratkaisu[0])
             self._ratkaisu = self._ratkaisu[1:]
+            self._siirrot += 1
             return True
         if self.tarkista_ratkaistavuus():
             self._ratkaisu = self._algoritmi.ida_star(self._ruudukko)
