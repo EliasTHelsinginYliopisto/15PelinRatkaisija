@@ -4,7 +4,7 @@ from siirtokasittelija import Siirtokasittelija
 
 class TestSiirtokasittelija(unittest.TestCase):
     def setUp(self):
-        self.kasittelija = Siirtokasittelija()
+        self.kasittelija = Siirtokasittelija(pituus=4)
 
     def test_siirto_muuttaa_matriisia(self):
         ruudukko1 = [

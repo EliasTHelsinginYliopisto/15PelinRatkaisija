@@ -30,7 +30,7 @@ class Algoritmi:
         """luokan konstruktori"""
 
         self.komennot = ["Up", "Left", "Down", "Right"]
-        self.kasittelija = Siirtokasittelija()
+        self.kasittelija = None
         self.solmut = 0
         self.tilasto = None
         self.paamaara = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,0]]
@@ -129,6 +129,7 @@ class Algoritmi:
 
         self.tilasto = Tilasto(kynnys)
         self.pituus = len(matriisi)
+        self.kasittelija = Siirtokasittelija(self.pituus)
         self.paamaara = self.alusta_paamaara()
 
         while True:

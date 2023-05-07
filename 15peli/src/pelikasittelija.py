@@ -20,7 +20,7 @@ class Pelikasittelija:
             lista siirroista jotka johtaa ratkaisuun"""
 
     def __init__(self, ruudukko, koko):
-        self._siirtaja = Siirtokasittelija()
+        self._siirtaja = Siirtokasittelija(koko)
         self._generaattori = Peligeneraattori(koko)
         self._algoritmi = Algoritmi()
         self._ruudukko = self._generaattori.validioi_ruudukkosyote(ruudukko)

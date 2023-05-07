@@ -60,4 +60,11 @@ Päivä       | Aika  | Tavoite   |
 4.5.2023    | 2h    | Refaktorointia    |
 6.5.2023    | 3h    | mahdollista eri matriisikoot ratkasijassa |
 
+todo: 
+paranna siirtäjä luokkaa
+kirjoita dokumentaatiot uudestaan
+täydennä testit
+täydennä dokumentaatio
+poista turhat päävalikkoelementit ja lisää siirtolaskuri
+
 ### Yhteensä: 54h Viikot (1-6)
