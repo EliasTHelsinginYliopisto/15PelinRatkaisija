@@ -60,10 +60,6 @@ Päivä       | Aika  | Tavoite   |
 4.5.2023    | 2h    | Refaktorointia    |
 6.5.2023    | 3h    | mahdollista eri matriisikoot ratkasijassa |
 7.5.2023    | 4h    | muokkaa käyttöliittymää, muokkaa siirtokasittelijää |
-
-todo:
-kirjoita dokumentaatiot uudestaan
-täydennä testit
-täydennä dokumentaatio
+9.5.2023    | 2h    | Laajenna testikattavuutta |
 
 ### Yhteensä: 54h Viikot (1-6)

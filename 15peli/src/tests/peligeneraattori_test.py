@@ -64,3 +64,12 @@ class TestPeligeneraattori(unittest.TestCase):
         self.assertEqual(tulos_3, True)
         self.assertEqual(tulos_4, False)
     
+    def test_ei_generoida_ratkaisemattomia(self):
+        vastaus = []
+        for i in range(10):
+            vastaus = self.generaattori.generoi_ruudukko()
+            lista = []
+            for rivi in vastaus:
+                for numero in rivi:
+                    lista.append(numero)
+            self.assertEqual(self.generaattori.tarkista_ratkaistavuus(lista), True)
