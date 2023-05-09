@@ -80,18 +80,14 @@ class Pelikasittelija:
             Returns:
                 sijainti:
                     ratkaisussa seuraavaksi siirrettävän ruudun kordinaatit"""
+
         if len(self._ratkaisu) == 0:
             return False
         komento = self._ratkaisu[0]
         sijainti = self._siirtaja.etsi_nolla(self._ruudukko)
-        if komento == "Up":
-            sijainti[0] += 1
-        elif komento == "Down":
-            sijainti[0] -= 1
-        elif komento == "Left":
-            sijainti[1] += 1
-        else:
-            sijainti[1] -= 1
+        siirot = {"Up":(1,0), "Down":(-1,0), "Left": (0,1), "Right":(0,-1)}
+        sijainti = [sijainti[0]+siirot[komento][0],sijainti[1]+siirot[komento][1]]
+
         return sijainti
 
     def tarkista_ratkaistavuus(self):

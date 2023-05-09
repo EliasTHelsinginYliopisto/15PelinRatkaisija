@@ -1,5 +1,6 @@
 #pylint: skip-file
 import unittest
+import unittest.mock as mock
 from peligeneraattori import Peligeneraattori
 
 class TestPeligeneraattori(unittest.TestCase):
@@ -24,9 +25,29 @@ class TestPeligeneraattori(unittest.TestCase):
             [8,9,10,11],
             [12,13,14,15]
             ]
-        saatu_matriisi = self.generaattori.generoi_ruudukko(True)
+        saatu_matriisi = self.generaattori.generoi_ruudukko()
         self.assertNotEqual(ei_satunnaninen_matriisi, saatu_matriisi)
     
+    def test_generoi_ruudukon_virheellisella_syotteella(self):
+        valegenraattori = self.generaattori.generoi_ruudukko = mock.Mock()
+
+        virhe1 = ""
+        virhe2 = "vaikea peli"
+        virhe3 = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16"
+        virhe4 = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,14,0"
+        validi = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0"
+        virhe5 = "a,b,c,d,e,f,g,h,i,j ,k ,l ,m ,n ,o, p"
+
+        self.generaattori.validioi_ruudukkosyote(virhe1)
+        self.generaattori.validioi_ruudukkosyote(virhe2)
+        self.generaattori.validioi_ruudukkosyote(virhe3)
+        self.generaattori.validioi_ruudukkosyote(validi)
+        self.generaattori.validioi_ruudukkosyote(virhe4)
+        self.generaattori.validioi_ruudukkosyote(virhe5)
+
+        self.assertEqual(len(valegenraattori.mock_calls),5)
+
+
     def test_ratkaisuvuuden_tarkistus_onnistuu(self):
         testi_1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0] #True
         testi_2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,15,14,0] #False

@@ -16,18 +16,22 @@ class Peligeneraattori:
     def validioi_ruudukkosyote(self, s_ruudukko):
         """tarkistaa että syötetty ruudukko on oikeassa muodossa
         ja palauttaa sen matriisina"""
-        if s_ruudukko == "":
-            m_ruudukko = self.generoi_ruudukko(ratkaistava=True)
-        else:
+        try:
             l_ruudukko = list(s_ruudukko.split(","))
             l_ruudukko = [int(i) for i in l_ruudukko]
-            if len(l_ruudukko) != self._ruutuumaara or not set(l_ruudukko).issubset(self._joukko):
-                m_ruudukko = self.generoi_ruudukko(ratkaistava=True)
-            else:
-                m_ruudukko = self.muunna_matriiisiksi(l_ruudukko)
+        except ValueError:
+            m_ruudukko = self.generoi_ruudukko()
+            return m_ruudukko
+
+        if not set(l_ruudukko).issubset(self._joukko):
+            m_ruudukko = self.generoi_ruudukko()
+        elif not set(self._joukko).issubset(l_ruudukko):
+            m_ruudukko = self.generoi_ruudukko()
+        else:
+            m_ruudukko = self.muunna_matriiisiksi(l_ruudukko)
         return m_ruudukko
 
-    def generoi_ruudukko(self, ratkaistava):
+    def generoi_ruudukko(self):
         """Generoi satunnaisen ruudukon ja palauttaa sen matriisimna
         Args:
             ratkaistava:
@@ -36,9 +40,8 @@ class Peligeneraattori:
         l_ruudukko = self._joukko
         while True:
             shuffle(l_ruudukko)
-            if ratkaistava:
-                if not self.tarkista_ratkaistavuus(l_ruudukko):
-                    continue
+            if not self.tarkista_ratkaistavuus(l_ruudukko):
+                continue
             m_ruudukko = self.muunna_matriiisiksi(l_ruudukko)
             return m_ruudukko
 

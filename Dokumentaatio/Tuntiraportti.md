@@ -59,7 +59,7 @@ Päivä       | Aika  | Tavoite   |
 ------------|-------|-----------|
 4.5.2023    | 2h    | Refaktorointia    |
 6.5.2023    | 3h    | mahdollista eri matriisikoot ratkasijassa |
-7.5.2023    | 
+7.5.2023    | 4h    | muokkaa käyttöliittymää, muokkaa siirtokasittelijää |
 
 todo:
 kirjoita dokumentaatiot uudestaan
