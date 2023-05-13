@@ -61,5 +61,7 @@ Päivä       | Aika  | Tavoite   |
 6.5.2023    | 3h    | mahdollista eri matriisikoot ratkasijassa |
 7.5.2023    | 4h    | muokkaa käyttöliittymää, muokkaa siirtokasittelijää |
 9.5.2023    | 2h    | Laajenna testikattavuutta |
+12.5.2023   | 4h    | Dokumentointi |
+13.5.2023   |       | Dokumentointi |
 
 ### Yhteensä: 54h Viikot (1-6)

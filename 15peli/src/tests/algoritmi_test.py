@@ -70,13 +70,46 @@ class TestAlgoritmi(unittest.TestCase):
 
         self.assertEqual(maara, 0)
 
-    def test_konfliktit_loytyvat(self):
+    
+    def test_konfliktit_sarakkeet(self):
         matriisi = [
-        [1,10,15,4],
-        [13,6,3,8],
-        [2,9,12,7],
-        [14,5,0,11]
+        [0,10,11,0],
+        [5,6,0,8],
+        [0,0,0,4],
+        [1,0,3,0]
         ]
         maara = self.algoritmi.konfliktit(matriisi)
 
-        self.assertEqual(maara, 2)
+        self.assertEqual(maara, 4)
+    
+    def test_konfliktit_rivit(self):
+        matriisi = [
+        [0,3,0,1],
+        [7,5,0,0],
+        [12,0,0,9],
+        [0,15,14,0]
+        ]
+        maara = self.algoritmi.konfliktit(matriisi)
+
+        self.assertEqual(maara, 4)
+    
+    def test_konfliktit_useampi(self):
+        rivi = [
+        [4,3,2,1],
+        [0,0,0,0],
+        [0,0,0,0],
+        [0,0,0,0]
+        ]
+        sarake = [
+        [13,0,0,0],
+        [9,0,0,0],
+        [5,0,0,0],
+        [1,0,0,0]
+        ]
+
+        r_maara = self.algoritmi.konfliktit(rivi)
+        s_maara = self.algoritmi.konfliktit(sarake)
+
+        self.assertEqual(r_maara, 6)
+        self.assertEqual(s_maara, 6)
+    

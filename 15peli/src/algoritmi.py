@@ -24,6 +24,9 @@ class Algoritmi:
             tilasto-luokka
         paamaara:
             pelin lopputila
+        pituus:
+            pelikentän koko. huomaa että koko tarkistetaan aina, 
+            4 on vain oletuspituus
     """
 
     def __init__(self):
@@ -125,10 +128,11 @@ class Algoritmi:
                 jos arvio <= 0, ratkaisu on löydetty ja arvion 
                 itseisarvo on vaadittujen askelten määrä"""
 
+        self.pituus = len(matriisi)
+
         kynnys = self.manhattaninetaisyydet(matriisi) + (self.konfliktit(matriisi)*2)
 
         self.tilasto = Tilasto(kynnys)
-        self.pituus = len(matriisi)
         self.kasittelija = Siirtokasittelija(self.pituus)
         self.paamaara = self.alusta_paamaara()
 

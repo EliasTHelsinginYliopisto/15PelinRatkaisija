@@ -19,6 +19,7 @@ class Tilasto:
         self.kulunut = 0
         self.syvennokset = 0
 
+        print("\n\n\n")
         print("Etsitään paras ratkaisu IDA* algoritmillä")
         print("Haku aloitetaan kynnyksellä", kynnys)
         print("\n\n\n")
