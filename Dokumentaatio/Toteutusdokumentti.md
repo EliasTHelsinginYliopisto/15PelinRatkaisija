@@ -229,7 +229,7 @@ Huomioi että haun kesto vaihtelee käytetyn laitteiston mukaan.
 
 ## Lähteet
 
-Tiralabra-kurssimateriaali ja esimerkkiprojektit
+- Tiralabra-kurssimateriaali ja esimerkkiprojektit
 - Ohjelmistotekniikka 2023
 - https://michael.kim/blog/puzzle
 -  https://www.youtube.com/watch?v=g0phuZDM6Mg
