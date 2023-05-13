@@ -1,5 +1,6 @@
 """
 Ruudukonkäsittelijää kutsutaan IDA* uusia solmuja luodessa
+Siirtokäsittelijä tekee siirrot uusille solmuille haun edetessä
 Deepcopy kopioi matriisin rekursiivista algoritmia varten
 """
 from copy import deepcopy
@@ -92,7 +93,10 @@ class Algoritmi:
         return maara
 
     def konfliktit_listassa(self, lista, numero):
-        """Laskee konfliktejen määrän annetulla numerolla ja listalla"""
+        """Laskee konfliktejen määrän annetulla numerolla ja listalla
+            Returns:
+                maara:
+                    löytyneiden konfiktejen määrä"""
         maara = 0
         for alkio in lista:
             if alkio > numero:
@@ -158,7 +162,7 @@ class Algoritmi:
                 ruudukon tila tässä rekursiivisessa askeleessa
             kynnys:
                 raja haun yhteisille siirroille
-            kielletty_k
+            kedellinen_k:
                 komento joka siirtäisi matriisin edelliseen tilaan
                 ja kyseisestä syystä ohitetaan
         Returns

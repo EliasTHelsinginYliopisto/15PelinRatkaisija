@@ -5,8 +5,12 @@ class Peligeneraattori:
     """
     Halltsee pelikentän generointia ja siihen liittyviä funktioita
     Attributes:
+        ruudukonkoko:
+            peliruudukon koko
+        ruutumaara:
+            ruutujen määrä peliruudukossa
         joukko:
-                lista numeroita 0-15
+                lista pelin numeroista (4x4 ruudukossa 0-15)
     """
     def __init__(self, koko):
         self._ruudukonkoko = koko
@@ -15,7 +19,13 @@ class Peligeneraattori:
 
     def validioi_ruudukkosyote(self, s_ruudukko):
         """tarkistaa että syötetty ruudukko on oikeassa muodossa
-        ja palauttaa sen matriisina"""
+        ja palauttaa sen matriisina
+        args:
+            l_ruudukko:
+                peliruudukko listamuodossa
+        returns:
+            m_ruudukko:
+                peliruudukko matriisisna"""
         try:
             l_ruudukko = list(s_ruudukko.split(","))
             l_ruudukko = [int(i) for i in l_ruudukko]
@@ -33,9 +43,12 @@ class Peligeneraattori:
 
     def generoi_ruudukko(self):
         """Generoi satunnaisen ruudukon ja palauttaa sen matriisimna
-        Args:
-            ratkaistava:
-                Määrittää, pitääkö pelin olla ratkaistavissa"""
+        args:
+            l_ruudukko:
+                peliruudukko listamuodossa
+        returns:
+            m_ruudukko:
+                peliruudukko matriisisna"""
 
         l_ruudukko = self._joukko
         while True:
@@ -47,9 +60,12 @@ class Peligeneraattori:
 
     def muunna_matriiisiksi(self, l_ruudukko):
         """Muuntaa listan matriisiksi
-            returns
-                uusi_ruudukko:
-                        ruudukko matriisimuodossa"""
+        args:
+            l_ruudukko:
+                peliruudukko listamuodossa
+        returns:
+            m_ruudukko:
+                    ruudukko matriisimuodossa"""
 
         m_ruudukko=[]
         while l_ruudukko != []:

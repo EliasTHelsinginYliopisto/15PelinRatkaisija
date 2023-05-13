@@ -1,4 +1,4 @@
-"""tkinter-moduuleja
+"""tkinter-moduuleja käytetään käyttöliittymän toteutukseen
 pelikäsittelijä ohjaa pelin toiminnallisuutta"""
 from tkinter import ttk, constants
 from pelikasittelija import Pelikasittelija
@@ -11,11 +11,11 @@ class Pelinakyma:
             tkinterin juurikomponentti
         kehys:
             kehys näkymän osille(ttk-widgetit)
-        pelikenttä:
+        pelikentta:
             pelitila käyttöliittymässä
-        käsittelijä:
+        kasittelija:
             pelikäsittelijä-luokka
-        päävalikkokäsittelijä
+        paavalikkokäsittelija
             metodi joka palauttaa käyttöliittymän päävalikkoon"""
 
 
@@ -29,7 +29,10 @@ class Pelinakyma:
         self._alusta()
 
     def _alusta(self):
-        """Määrittää näkymän komponentit ja komennot"""
+        """Määrittää näkymän komponentit ja komennot
+        args:
+            laskuri:
+                laskuri joka merkitsee tehtyjen siirtojen määrän"""
 
         self._kehys = ttk.Frame(master=self._juuri)
         self._pelikentta = self.alusta_pelikentta()
@@ -81,8 +84,10 @@ class Pelinakyma:
         Args:
             ruudukko:
                 pelissä käytettävä ruudukko matriisismuodossa
+            siirrot:
+                tehtyjen siirtojen määrä
             seuraava:
-                ratkaisussa seuraavan siirrettävän ruudun kordinaatit"""
+                ratkaisussa seuraavaksi siirrettävän ruudun kordinaatit"""
         ruudukko = self._kasittelija.hae_ruudukko()
         siirrot = self._kasittelija.hae_siirrot()
         for i, rivi in enumerate(ruudukko):

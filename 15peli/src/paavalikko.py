@@ -36,14 +36,12 @@ class Paavalikko:
     def _alusta(self):
         """Määrittää valikon komponentit
             Args:
+                muotoilu:
+                    asettaa fontin tyylin ja koon
                 teksti:
                     valikon otsikko
                 aloita_nappi:
-                    nappi joka aloittaa pelin
-                itsegeneroitu:
-                    valinta generoiko sovellus pelin
-                ratkaistava:
-                    valinta joka varmistaa että peli on ratkaistavissa"""
+                    nappi joka aloittaa pelin"""
         self._kehys = ttk.Frame(master=self._juuri)
 
         muotoilu = ttk.Style()

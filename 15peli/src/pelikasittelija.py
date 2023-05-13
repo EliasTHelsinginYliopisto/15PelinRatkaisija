@@ -17,7 +17,9 @@ class Pelikasittelija:
         ruudukko:
             pelitila matriisina
         ratkaisu:
-            lista siirroista jotka johtaa ratkaisuun"""
+            lista siirroista jotka johtaa ratkaisuun
+        siirrot:
+            tehtyjen siirtojen määrä"""
 
     def __init__(self, ruudukko, koko):
         self._siirtaja = Siirtokasittelija(koko)
@@ -35,8 +37,14 @@ class Pelikasittelija:
         """get metodi: palauttaa siirtojen määrän"""
         return self._siirrot
 
+    def lisaa_siirto(self):
+        """lisää yhden tehtyjen siirtojen määrään"""
+        self._siirrot += 1
+
     def tee_siirto(self, komento):
         """tekee siiron ja päivittää ratkaisun tarvittaessa
+        Komennot:
+            lista mahdollisista siirroista
         Returns:
             True/False:
                 true jos on tehty siirto"""
@@ -45,7 +53,7 @@ class Pelikasittelija:
         if not siirto:
             return False
 
-        self._siirrot += 1
+        self.lisaa_siirto()
         if len(self._ratkaisu) == 0:
             return True
         if komento == self._ratkaisu[0]:
@@ -68,7 +76,7 @@ class Pelikasittelija:
         if len(self._ratkaisu) > 0:
             self._siirtaja.tee_siirto(self._ruudukko, self._ratkaisu[0])
             self._ratkaisu = self._ratkaisu[1:]
-            self._siirrot += 1
+            self.lisaa_siirto()
             return True
         if self.tarkista_ratkaistavuus():
             self._ratkaisu = self._algoritmi.ida_star(self._ruudukko)
@@ -77,6 +85,9 @@ class Pelikasittelija:
 
     def etsi_seuraava(self):
         """Etsii ratkaisussa seuraavaksi siirrettävän ruudun kordinaatit
+            args:
+                siirrot:
+                    seuraavan siirrettävän ruudun koordinaatit suhteessa tyhjään
             Returns:
                 sijainti:
                     ratkaisussa seuraavaksi siirrettävän ruudun kordinaatit"""
