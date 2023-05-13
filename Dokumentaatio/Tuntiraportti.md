@@ -62,6 +62,7 @@ Päivä       | Aika  | Tavoite   |
 7.5.2023    | 4h    | muokkaa käyttöliittymää, muokkaa siirtokasittelijää |
 9.5.2023    | 2h    | Laajenna testikattavuutta |
 12.5.2023   | 4h    | Dokumentointi |
-13.5.2023   |       | Dokumentointi |
+13.5.2023   | 2h    | Dokumentointi |
+yht         | 17 h
 
-### Yhteensä: 54h Viikot (1-6)
+### Yhteensä: 71h
