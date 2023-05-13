@@ -230,9 +230,9 @@ Huomioi että haun kesto vaihtelee käytetyn laitteiston mukaan.
 ## Lähteet
 
 Tiralabra-kurssimateriaali ja esimerkkiprojektit
-Ohjelmistotekniikka 2023
-https://michael.kim/blog/puzzle
-https://www.youtube.com/watch?v=g0phuZDM6Mg
-http://kociemba.org/themen/fifteen/fifteensolver.html (vain nettisivu)
-https://en.wikipedia.org/wiki/Iterative_deepening_A*
-https://www.geeksforgeeks.org/check-instance-15-puzzle-solvable/
+- Ohjelmistotekniikka 2023
+- https://michael.kim/blog/puzzle
+-  https://www.youtube.com/watch?v=g0phuZDM6Mg
+- http://kociemba.org/themen/fifteen/fifteensolver.html (vain nettisivu)
+-  https://en.wikipedia.org/wiki/Iterative_deepening_A*
+- https://www.geeksforgeeks.org/check-instance-15-puzzle-solvable/
